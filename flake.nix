@@ -24,7 +24,7 @@
             pre-commit install
             pre-commit autoupdate -j $(nproc)
           '';
-          
+
         };
 
         defaultPackage = pkgs.buildGoModule rec {
