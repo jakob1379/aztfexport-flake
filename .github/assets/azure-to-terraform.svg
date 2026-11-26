@@ -1,0 +1,172 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 24 1000 366" width="1000" height="366" role="img" aria-labelledby="t d">
+  <title id="t">aztfexport, built by Nix, turns Azure resources into Terraform</title>
+  <desc id="d">Three resources in an Azure subscription (resource group rg-demo, virtual network vnet-demo, storage account stdemo) pass one by one through aztfexport v0.16.0, built by Nix from pinned commit 215fca6, and come out as Terraform resource blocks res-0, res-1 and res-2 in main.tf.</desc>
+  <style>
+    svg {
+      --bg: #eef2fb;
+      --panel: #ffffff;
+      --ink: #17203d;
+      --muted: #5b678a;
+      --line: #cfd8ec;
+      --azure: #0b68cf;
+      --violet: #6a3dc0;
+      --core: #1d2a57;
+      --core-ink: #ffffff;
+      --glow: #4f86e8;
+      color-scheme: light dark;
+    }
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --bg: #0f1733;
+        --panel: #172251;
+        --ink: #e5eafa;
+        --muted: #98a5cc;
+        --line: #2d3b70;
+        --azure: #5aa8ff;
+        --violet: #b592ff;
+        --core: #2a3c7a;
+        --core-ink: #ffffff;
+        --glow: #7fb0ff;
+      }
+    }
+    .bg { fill: var(--bg); }
+    .panel { fill: var(--panel); stroke: var(--line); stroke-width: 1.5; }
+    .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, Roboto, "Helvetica Neue", Arial, sans-serif; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", "DejaVu Sans Mono", monospace; }
+    .label { fill: var(--muted); font-size: 13px; }
+    .name { fill: var(--ink); font-size: 14px; font-weight: 600; }
+    .kind { fill: var(--muted); font-size: 11.5px; }
+    .icon { fill: none; stroke: var(--azure); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .dot { fill: var(--azure); }
+    .wire { fill: none; stroke: var(--line); stroke-width: 1.5; stroke-dasharray: 3 5; }
+    .core { fill: var(--core); }
+    .core-t { fill: var(--core-ink); text-anchor: middle; }
+    .ring { fill: none; stroke: var(--glow); stroke-width: 2.5; opacity: 0; }
+    .hl { fill: var(--azure); fill-opacity: .10; stroke: var(--azure); stroke-width: 1.5; opacity: .45; }
+    .ck { fill: none; stroke: var(--violet); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .pk { opacity: 0; }
+    .pk circle { fill: currentColor; }
+    .code { font-size: 11.5px; fill: var(--ink); }
+    .kw { fill: var(--violet); }
+    .str { fill: var(--azure); }
+    .pn { fill: var(--muted); }
+    .cmd { fill: var(--ink); font-size: 13px; }
+    @media (prefers-reduced-motion: no-preference) {
+      .hl, .ck, .pk, .blk, .ring { animation-duration: 12s; animation-iteration-count: infinite; animation-timing-function: cubic-bezier(.45, 0, .25, 1); }
+      .pk { color: var(--azure); }
+      .r0 .hl { animation-name: hl0; } .r1 .hl { animation-name: hl1; } .r2 .hl { animation-name: hl2; }
+      .r0 .ck { animation-name: ck0; } .r1 .ck { animation-name: ck1; } .r2 .ck { animation-name: ck2; }
+      .p0 { animation-name: pk0; } .p1 { animation-name: pk1; } .p2 { animation-name: pk2; }
+      .b0 { animation-name: bk0; } .b1 { animation-name: bk1; } .b2 { animation-name: bk2; }
+      .ring { animation-name: ring; }
+    }
+    @keyframes hl0 { 0%, 6% { opacity: 0; } 8% { opacity: 1; } 16%, 90% { opacity: .45; } 96%, 100% { opacity: 0; } }
+    @keyframes hl1 { 0%, 30% { opacity: 0; } 32% { opacity: 1; } 40%, 90% { opacity: .45; } 96%, 100% { opacity: 0; } }
+    @keyframes hl2 { 0%, 54% { opacity: 0; } 56% { opacity: 1; } 64%, 90% { opacity: .45; } 96%, 100% { opacity: 0; } }
+    @keyframes ck0 { 0%, 24% { opacity: 0; } 27%, 90% { opacity: 1; } 96%, 100% { opacity: 0; } }
+    @keyframes ck1 { 0%, 48% { opacity: 0; } 51%, 90% { opacity: 1; } 96%, 100% { opacity: 0; } }
+    @keyframes ck2 { 0%, 72% { opacity: 0; } 75%, 90% { opacity: 1; } 96%, 100% { opacity: 0; } }
+    @keyframes pk0 {
+      0%, 6% { opacity: 0; transform: translate(300px, 137px); color: var(--azure); }
+      7% { opacity: 1; }
+      12% { transform: translate(370px, 202px); color: var(--azure); }
+      16% { transform: translate(550px, 202px); color: var(--violet); }
+      22% { opacity: 1; transform: translate(600px, 137px); }
+      24%, 100% { opacity: 0; transform: translate(600px, 137px); color: var(--violet); }
+    }
+    @keyframes pk1 {
+      0%, 30% { opacity: 0; transform: translate(300px, 202px); color: var(--azure); }
+      31% { opacity: 1; }
+      36% { transform: translate(370px, 202px); color: var(--azure); }
+      40% { transform: translate(550px, 202px); color: var(--violet); }
+      46% { opacity: 1; transform: translate(600px, 202px); }
+      48%, 100% { opacity: 0; transform: translate(600px, 202px); color: var(--violet); }
+    }
+    @keyframes pk2 {
+      0%, 54% { opacity: 0; transform: translate(300px, 267px); color: var(--azure); }
+      55% { opacity: 1; }
+      60% { transform: translate(370px, 202px); color: var(--azure); }
+      64% { transform: translate(550px, 202px); color: var(--violet); }
+      70% { opacity: 1; transform: translate(600px, 267px); }
+      72%, 100% { opacity: 0; transform: translate(600px, 267px); color: var(--violet); }
+    }
+    @keyframes bk0 { 0%, 20% { clip-path: inset(0 100% 0 0); } 27%, 90% { clip-path: inset(0 0 0 0); opacity: 1; } 96%, 100% { clip-path: inset(0 0 0 0); opacity: 0; } }
+    @keyframes bk1 { 0%, 44% { clip-path: inset(0 100% 0 0); } 51%, 90% { clip-path: inset(0 0 0 0); opacity: 1; } 96%, 100% { clip-path: inset(0 0 0 0); opacity: 0; } }
+    @keyframes bk2 { 0%, 68% { clip-path: inset(0 100% 0 0); } 75%, 90% { clip-path: inset(0 0 0 0); opacity: 1; } 96%, 100% { clip-path: inset(0 0 0 0); opacity: 0; } }
+    @keyframes ring { 0%, 12% { opacity: 0; } 14% { opacity: 1; } 17%, 36% { opacity: 0; } 38% { opacity: 1; } 41%, 60% { opacity: 0; } 62% { opacity: 1; } 65%, 100% { opacity: 0; } }
+  </style>
+
+  <rect class="bg" y="24" width="1000" height="366" rx="18"/>
+
+  <g class="wire">
+    <path d="M300 137 L370 202"/>
+    <path d="M300 202 L370 202"/>
+    <path d="M300 267 L370 202"/>
+    <path d="M550 202 L600 137"/>
+    <path d="M550 202 L600 202"/>
+    <path d="M550 202 L600 267"/>
+  </g>
+
+  <rect class="panel" x="32" y="66" width="268" height="250" rx="12"/>
+  <text class="sans label" x="52" y="96">Azure subscription</text>
+
+  <g class="r0">
+    <rect class="hl" x="48" y="112" width="236" height="50" rx="9"/>
+    <rect class="icon" x="61" y="127" width="22" height="20" rx="3" stroke-dasharray="4 3"/>
+    <text class="sans name" x="96" y="134">rg-demo</text>
+    <text class="sans kind" x="96" y="150">Resource group</text>
+    <path class="ck" d="M258 137 l5 5 l9 -10"/>
+  </g>
+  <g class="r1">
+    <rect class="hl" x="48" y="177" width="236" height="50" rx="9"/>
+    <path class="icon" d="M64 195 l-5 7 l5 7 M80 195 l5 7 l-5 7"/>
+    <circle class="dot" cx="66.5" cy="202" r="1.8"/><circle class="dot" cx="72" cy="202" r="1.8"/><circle class="dot" cx="77.5" cy="202" r="1.8"/>
+    <text class="sans name" x="96" y="199">vnet-demo</text>
+    <text class="sans kind" x="96" y="215">Virtual network</text>
+    <path class="ck" d="M258 202 l5 5 l9 -10"/>
+  </g>
+  <g class="r2">
+    <rect class="hl" x="48" y="242" width="236" height="50" rx="9"/>
+    <rect class="icon" x="61" y="256" width="22" height="5" rx="2"/>
+    <rect class="icon" x="61" y="264.5" width="22" height="5" rx="2"/>
+    <rect class="icon" x="61" y="273" width="22" height="5" rx="2"/>
+    <text class="sans name" x="96" y="264">stdemo</text>
+    <text class="sans kind" x="96" y="280">Storage account</text>
+    <path class="ck" d="M258 267 l5 5 l9 -10"/>
+  </g>
+
+  <g class="pk p0"><circle r="11" opacity=".22"/><circle r="5"/></g>
+  <g class="pk p1"><circle r="11" opacity=".22"/><circle r="5"/></g>
+  <g class="pk p2"><circle r="11" opacity=".22"/><circle r="5"/></g>
+
+  <text class="sans label" x="460" y="122" text-anchor="middle">Built by Nix</text>
+  <rect class="ring" x="361" y="133" width="198" height="138" rx="20"/>
+  <rect class="core" x="370" y="142" width="180" height="120" rx="14"/>
+  <text class="sans core-t" x="460" y="190" font-size="21" font-weight="700">aztfexport</text>
+  <text class="sans core-t" x="460" y="213" font-size="13" opacity=".82">v0.16.0</text>
+  <text class="mono core-t" x="460" y="240" font-size="11" opacity=".62">rev 215fca6</text>
+
+  <rect class="panel" x="600" y="66" width="368" height="250" rx="12"/>
+  <path d="M600 104 H968" stroke="var(--line)" stroke-width="1.5"/>
+  <text class="mono label" x="620" y="90" font-size="12.5">main.tf</text>
+
+  <g class="mono code">
+    <g class="blk b0">
+      <text x="618" y="124"><tspan class="kw">resource</tspan> <tspan class="str">"azurerm_resource_group"</tspan> <tspan class="str">"res-0"</tspan> <tspan class="pn">{</tspan></text>
+      <text x="634" y="141">name = <tspan class="str">"rg-demo"</tspan></text>
+      <text x="618" y="158" class="pn">}</text>
+    </g>
+    <g class="blk b1">
+      <text x="618" y="189"><tspan class="kw">resource</tspan> <tspan class="str">"azurerm_virtual_network"</tspan> <tspan class="str">"res-1"</tspan> <tspan class="pn">{</tspan></text>
+      <text x="634" y="206">name = <tspan class="str">"vnet-demo"</tspan></text>
+      <text x="618" y="223" class="pn">}</text>
+    </g>
+    <g class="blk b2">
+      <text x="618" y="254"><tspan class="kw">resource</tspan> <tspan class="str">"azurerm_storage_account"</tspan> <tspan class="str">"res-2"</tspan> <tspan class="pn">{</tspan></text>
+      <text x="634" y="271">name = <tspan class="str">"stdemo"</tspan></text>
+      <text x="618" y="288" class="pn">}</text>
+    </g>
+  </g>
+
+  <text class="mono cmd" x="40" y="358"><tspan class="pn">$</tspan> nix run github:jakob1379/aztfexport-flake -- resource-group rg-demo</text>
+</svg>
